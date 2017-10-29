@@ -45,6 +45,12 @@ diff reports these two files are markedly different. How different? look close..
 ---
 >  loop                  0       12       75
 ```
-(under construction)
+(under construction)  
+* useful functions
+stackScopeChain()  
+stackPointerInfo()  
+arrayInfo(array)  
+dumpHeap()  
+objectAddress(obj)  
 
 glhf
