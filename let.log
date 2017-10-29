@@ -1,0 +1,77 @@
+flags: CONSTRUCTOR
+loc     op
+-----   --
+main:
+00000:  zero                            # 0
+00001:  setlocal 0                      # 0
+00005:  pop                             # 
+00006:  nop                             # 
+00007:  goto 67 (+60)                   # 
+
+# from ifne @ 00076
+00012:  loophead                        # 
+00013:  pushlexicalenv lexical {g: env slot 2} # 
+00018:  getgname "greetings"            # greetings
+00023:  getlocal 0                      # greetings i
+00027:  getelem                         # greetings[i]
+00028:  initaliasedlexical "g" (hops = 0, slot = 2) # greetings[i]
+00033:  pop                             # 
+00034:  getgname "array"                # array
+00039:  getlocal 0                      # array i
+00043:  newtarget                       # array i new.target
+00044:  lambda_arrow () => print(g)     # array i FUN
+00049:  setelem                         # array[i]
+00050:  pop                             # 
+00051:  poplexicalenv                   # 
+00052:  jumptarget                      # 
+00053:  getlocal 0                      # i
+00057:  pos                             # (+ i)
+00058:  dup                             # (+ i) (+ i)
+00059:  one                             # (+ i) (+ i) 1
+00060:  add                             # (+ i) ((+ i) + 1)
+00061:  setlocal 0                      # (+ i) ((+ i) + 1)
+00065:  pop                             # (+ i)
+00066:  pop                             # 
+
+# from goto @ 00007
+00067:  loopentry 129                   # 
+00069:  getlocal 0                      # i
+00073:  int8 3                          # i 3
+00075:  lt                              # (i < 3)
+00076:  ifne 12 (-64)                   # 
+00081:  jumptarget                      # 
+00082:  retrval                         # 
+
+Source notes:
+ ofs line    pc  delta desc     args
+---- ---- ----- ------ -------- ------
+  0:    4     0 [   0] newline 
+  1:    5     0 [   0] colspan 6
+  3:    5     0 [   0] colspan 4
+  5:    5     6 [   6] for      cond 60 update 45 tail 69
+  9:    5    12 [   6] newline 
+ 10:    6    12 [   0] colspan 4
+ 12:    6    13 [   1] setline  lineno 5
+ 14:    5    13 [   0] newline 
+ 15:    6    18 [   5] colspan 8
+ 17:    6    34 [  16] xdelta  
+ 18:    6    34 [   0] newline 
+ 19:    7    34 [   0] colspan 4
+ 21:    7    53 [  19] xdelta  
+ 22:    7    53 [   0] setline  lineno 5
+ 24:    5    53 [   0] colspan 24
+ 26:    5    67 [  14] xdelta  
+ 27:    5    67 [   0] setline  lineno 8
+ 29:    8    67 [   0] setline  lineno 5
+ 31:    5    67 [   0] colspan 17
+ 33:    5    82 [  15] xdelta  
+ 34:    5    82 [   0] setline  lineno 9
+
+Exception table:
+kind               stack    start      end
+ loop                  0       12       81
+
+Scope notes:
+   index   parent    start      end
+       1   (none)       18       52
+

@@ -1,14 +1,11 @@
-function test(){
-  var array = [];
-  var greetings = ["hello","hola","konichiwa"];
+var array = [];
+var greetings = ["hello","hola","konichiwa"];
   
+function test(){
   for(var i = 0; i < 3; i++){
     const g = greetings[i];
     array[i] = () => print(g)
   }
-
-  array[0]();
-  array[1]();
-  array[2]();
 }
 
+dis(test);

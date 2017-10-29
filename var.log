@@ -1,0 +1,71 @@
+flags: NEEDS_CALLOBJECT CONSTRUCTOR
+loc     op
+-----   --
+main:
+00000:  zero                            # 0
+00001:  setlocal 0                      # 0
+00005:  pop                             # 
+00006:  nop                             # 
+00007:  goto 61 (+54)                   # 
+
+# from ifne @ 00070
+00012:  loophead                        # 
+00013:  getgname "greetings"            # greetings
+00018:  getlocal 0                      # greetings i
+00022:  getelem                         # greetings[i]
+00023:  setaliasedvar "g" (hops = 0, slot = 2) # greetings[i]
+00028:  pop                             # 
+00029:  getgname "array"                # array
+00034:  getlocal 0                      # array i
+00038:  newtarget                       # array i new.target
+00039:  lambda_arrow () => print(g)     # array i FUN
+00044:  setelem                         # array[i]
+00045:  pop                             # 
+00046:  jumptarget                      # 
+00047:  getlocal 0                      # i
+00051:  pos                             # (+ i)
+00052:  dup                             # (+ i) (+ i)
+00053:  one                             # (+ i) (+ i) 1
+00054:  add                             # (+ i) ((+ i) + 1)
+00055:  setlocal 0                      # (+ i) ((+ i) + 1)
+00059:  pop                             # (+ i)
+00060:  pop                             # 
+
+# from goto @ 00007
+00061:  loopentry 129                   # 
+00063:  getlocal 0                      # i
+00067:  int8 3                          # i 3
+00069:  lt                              # (i < 3)
+00070:  ifne 12 (-58)                   # 
+00075:  jumptarget                      # 
+00076:  retrval                         # 
+
+Source notes:
+ ofs line    pc  delta desc     args
+---- ---- ----- ------ -------- ------
+  0:    4     0 [   0] newline 
+  1:    5     0 [   0] colspan 6
+  3:    5     0 [   0] colspan 4
+  5:    5     6 [   6] for      cond 54 update 39 tail 63
+  9:    5    12 [   6] newline 
+ 10:    6    12 [   0] colspan 4
+ 12:    6    13 [   1] setline  lineno 5
+ 14:    5    13 [   0] newline 
+ 15:    6    13 [   0] colspan 8
+ 17:    6    29 [  16] xdelta  
+ 18:    6    29 [   0] newline 
+ 19:    7    29 [   0] colspan 4
+ 21:    7    47 [  18] xdelta  
+ 22:    7    47 [   0] setline  lineno 5
+ 24:    5    47 [   0] colspan 24
+ 26:    5    61 [  14] xdelta  
+ 27:    5    61 [   0] setline  lineno 8
+ 29:    8    61 [   0] setline  lineno 5
+ 31:    5    61 [   0] colspan 17
+ 33:    5    76 [  15] xdelta  
+ 34:    5    76 [   0] setline  lineno 9
+
+Exception table:
+kind               stack    start      end
+ loop                  0       12       75
+
