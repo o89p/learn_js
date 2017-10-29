@@ -3,19 +3,29 @@ Learn the difference between var, let and const through using functions dis() an
 * run js command  
 `$ js -f <var,let,const>_fn.js -i`  
 * disassembly it  
-`js> dis(function name)`  
-`js> dissrc(function name)`    
+```
+js> dis(function name)  
+js> dissrc(function name)
+```
 # 
 * take a difference  
-```$ js -f var_fn.js > var.log
+```
+$ js -f var_fn.js > var.log
 $ js -f let_fn.js > let.log
-$ js -f const_fn.js > const.log```  
-```$ diff const.log let.log
+$ js -f const_fn.js > const.log
+```  
+Now, Compare const.log with let.log. The following shows the result of diff command.
+```
+$ diff const.log let.log
 56c56
 <  15:    6    18 [   5] colspan 10
 ---
->  15:    6    18 [   5] colspan 8```  
-```$ diff const.log var.log```  
+>  15:    6    18 [   5] colspan 8
+```
+The above demonstrates that const and let are very similar. But const.log with var.log...
+```
+$ diff const.log var.log
+```  
 
 
 glhf
